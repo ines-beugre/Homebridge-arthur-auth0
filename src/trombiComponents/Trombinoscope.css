@@ -1,0 +1,87 @@
+.search-bar{
+    outline: black;
+    background-color: #eeeeee; 
+    width: 30%;   /* Permet d'ajuster la largeur du champ de saisie à 100% */
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trombi-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.trombi-title{
+    font-family: 'Open Sans';
+    font-weight:bold;
+    margin-bottom: 30px;
+}
+.card-border{
+    display: inline-block;
+    margin-left: auto ;
+    margin-right: auto;
+    text-align: center;
+
+}
+
+.card-image-trombi{
+    
+}
+
+.card-border > .card-information-trombi{
+   padding: auto, auto, auto, auto;
+   
+}
+
+.card-information-trombi{
+    width: 250px;
+    height: 90px;
+    font-size: 12px;
+    outline: black;
+    position: fixed;
+    display:none;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 0;
+    margin-top: -12%;
+    float: right;
+    word-wrap: break-word;
+
+}
+
+.card:hover .card-information-trombi {
+    display:block;
+}
+    
+.card:hover .displayImg-trombi {
+    opacity:0.5;
+    cursor: pointer;
+}
+
+.displayImg-trombi{
+    width: 250px;
+    height: 250px;
+    border: solid black 2.5px; 
+    border-radius: 49%;
+    -webkit-box-shadow: 0px 0px 41px 10px rgba(212,212,212,0.3);
+    -moz-box-shadow: 0px 0px 41px 10px rgba(212,212,212,0.3);
+    box-shadow: 0px 0px 41px 10px rgba(212,212,212,0.3);
+
+}
+
+.card-action >.edit {
+    color: #FFC107;
+}
+
+.card-action >.delete {
+    color: rgb(201, 10, 10);
+}
+
+.card-name-trombi{
+    background:#FCFDFE;
+    margin-top:-30px;
+    font-size: 20px;
+}
+
