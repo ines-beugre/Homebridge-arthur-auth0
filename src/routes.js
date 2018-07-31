@@ -51,10 +51,10 @@ export const makeMainRoutes = () => {
           )
         )}/>
         <Route path="/trombinoscope" component={(props) => { return <Trombinoscope auth={auth} {...props}/>} }/>
-        <Route path="/person/:email" component={(props) =>  { return <Person auth={auth} {...props}/>}}/>
-        <Route path="/update/:email" component={(props) => <CreateOrUpdate maxLength={30} {...props}/>}/> 
+        <Route path="/person/:email" component={(props) => { return <Person auth={auth} {...props}/>}}/>
+        <Route path="/update/:email" component={(props) => { return <CreateOrUpdate auth={auth} maxLength={30} {...props}/>} }/> 
         <Route path="/list" component={(props) => { return <List auth={auth} {...props}/>}}/>
-        <Route path="/create" component={(props) => <CreateOrUpdate maxLength={30} {...props}/>}/>
+        <Route path="/create" component={(props) => { return <CreateOrUpdate auth={auth} maxLength={30} {...props}/>} }/>
 
       </div>
     </Router>

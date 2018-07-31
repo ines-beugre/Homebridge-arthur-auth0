@@ -95,18 +95,20 @@ export class Trombinoscope extends Component {
             this.handleDelete(person)
         }
     }
-
-    //verifie la presence de la personn
     
     render(){
-        const personsToDisplay = this.state.personsToDisplay;
+        const {isAuthenticated} = this.props.auth;
         const {isAdmin, existPerson} = this.state;
+        const personsToDisplay = this.state.personsToDisplay;
+
 
         console.log ('isAdmin', isAdmin)
         console.log ('existPerson', existPerson)
 
 
         return(
+            
+            isAuthenticated() &&
             <div className="App">
                 <h2 className="trombi-title"><b>Membres de la Team Serli</b></h2>
 
@@ -142,7 +144,8 @@ export class Trombinoscope extends Component {
                     {/* affichage des personnes */}
                     <div className="trombi-container animated pulse">
                             {
-                            personsToDisplay.map(person =>(
+                            personsToDisplay
+                            .map(person =>(
                                 <TrombiCard isAdmin={isAdmin} key={person.email} person = {person} deletePerson = {this.deletePerson.bind(this)}/>
                                 )
                             )    
@@ -151,24 +154,14 @@ export class Trombinoscope extends Component {
 
                     {/* bouton d'ajout d'une personne */}
 
-                    { ( (isAdmin) ? 
+                    { ( (isAdmin) ?
                         <div className="">
                             <button type="button" className="btn btn-primary add-new" onClick={ () => {this.goToCreate()} }>
                             <i className="fa fa-plus"></i> Ajouter une nouvelle personne :)</button>
-                        </div>  : ( existPerson === false ?  
-                        <div className="">
-                        <button type="button" className="btn btn-primary add-new" onClick={ () => {this.goToCreate()} }>
-                        <i className="fa fa-plus"></i> Ajouter une nouvelle personne :)</button>
-                    </div> :
-                        null ))
+                        </div> :
+                        null )
                     }
-            </div>
-        )
+            </div> 
+        ) 
     }
 }
-
-// <div className="">
-                    //     <button type="button" className="btn btn-primary add-new" onClick={ () => {this.goToCreate()} }>
-                    //     <i className="fa fa-plus"></i> Ajouter une nouvelle personne :)</button>
-                    //     {/* <button type="button" className="bouton2" onClick={ () => {this.goToCreate()} }><i class="fa fa-plus"></i></button> */}
-                    // </div> 

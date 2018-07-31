@@ -31,6 +31,7 @@ class Profile extends Component {
 
   render() {
     const { profile } = this.state;
+    const appMetadata = profile['https://auth0-serli/metadata/app_metadata'];
 
     return (
       <div className="Add-form animated pulse">
@@ -47,6 +48,7 @@ class Profile extends Component {
                 Prénom: {profile.given_name} <br/>
                 Nom: {profile.family_name} <br/>
                 Email: {profile.email} <br/>
+                {/* Admin: {appMetadata} <br/> */}
                 <i><a href={`mailto:${profile.email}`}>Acceder à ma boîte mail</a></i><br/>
             </pre>
           </Panel>

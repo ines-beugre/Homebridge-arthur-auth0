@@ -131,10 +131,12 @@ export class CreateOrUpdate extends Component {
 
 
     render(){
+        const {isAuthenticated} = this.props.auth;
         const { person } = this.state;
         const { isAdmin, userEmail, existPerson} = this.state;
         const { test } = this.state
         const isPresent = person.id;
+
 
         console.log("sessionStorageC1", isAdmin)
         console.log("userNameC1", userEmail)
@@ -143,6 +145,7 @@ export class CreateOrUpdate extends Component {
         console.log("existPC", existPerson)
 
         return(
+            isAuthenticated() &&
                 <div className="App Add-form animated pulse" style={{marginBottom:'0px'}}>
                    
                         <form className="create" onSubmit={this.handleSubmit} >

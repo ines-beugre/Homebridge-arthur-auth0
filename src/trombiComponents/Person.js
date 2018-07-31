@@ -53,7 +53,6 @@ export class  Person extends Component{
 
     samePersonOrAdmin = () => {
         const personEmail = (this.state.person.email);
-        // const userEmail = (this.state.profile.email);
         const {userEmail} = this.state;
         console.log('samePersonEmail:', personEmail);
         console.log('sameUserEmail:', userEmail);
@@ -62,16 +61,15 @@ export class  Person extends Component{
     }
 
     render(){    
+        const {isAuthenticated} = this.props.auth;
         const {person} = this.state;
         const image = person.image;
 
         return(
+            isAuthenticated() &&
             <div className="App form-person" >
-            {/* <div className="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4"> */}
                 <h3 className="person-title">Profil</h3>
-                    <div className="card-person">  
-                        {/* className="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4" */}
-                      
+                    <div className="card-person">                        
                         <div className="zoom card-image-person">
                             <div>
                                 {image 
@@ -80,7 +78,6 @@ export class  Person extends Component{
                              </div>
                         </div>
                     </div> 
-                        {/* <br/> */}
                     <div className="card-information-person">
                         <label>Nom:</label> {person.lastname} <br/>
                         <label>Prénom:</label> {person.firstname} <br/>
@@ -127,28 +124,3 @@ export class  Person extends Component{
         )
     }
 }
-
-{/* <table  >
-    <tbody>
-        <tr>
-            <th >Prénom:</th>
-            <td > {person.firstName} </td>
-        </tr>
-        <tr>
-            <th>Nom:</th>
-            <td > {person.lastName} </td>
-        </tr>
-        <tr>
-            <th>Couleur préférée:</th>
-            <td ><span className="person-color" style={{backgroundColor:person.color} }/></td>
-        </tr>
-        <tr>
-            <th>Message d'accueil:</th>
-            <td > {person.welcomeMsg} </td>
-        </tr>
-        <tr>
-            <th>Email:</th>
-            <td > {person.email} </td>
-        </tr>
-    </tbody>
-</table> */}
