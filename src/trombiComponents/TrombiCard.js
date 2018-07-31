@@ -58,8 +58,8 @@ export default class TrombiCard extends Component{
                             <div className="card-action">
                                 { ((isAdmin) || (person.email === userEmail) ?
                                 <span className="edit" title="Edit" data-toggle="tooltip"><Link to={`/update/${person.email}`}><i className="material-icons">&#xE254;</i></Link></span>
-                                : null)
-                                }
+                                 : null)
+                                } 
                                 { (isAdmin ?
                                 <span className="delete" title="Delete" data-toggle="tooltip" style={{cursor: "pointer"}} onClick={ () => {this.props.deletePerson(person)} }> <i className="material-icons">&#xE872;</i></span>
                                 : null)

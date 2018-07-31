@@ -33,6 +33,7 @@ export class Trombinoscope extends Component {
         PersonServices.getPersonList()
             .then(r => r.json())
             .then(persons => {
+                persons.slice || (persons = []);
                 this.setState({persons, personsToDisplay: persons})
             });
     }
@@ -144,8 +145,7 @@ export class Trombinoscope extends Component {
                     {/* affichage des personnes */}
                     <div className="trombi-container animated pulse">
                             {
-                            personsToDisplay
-                            .map(person =>(
+                            personsToDisplay.map(person =>(
                                 <TrombiCard isAdmin={isAdmin} key={person.email} person = {person} deletePerson = {this.deletePerson.bind(this)}/>
                                 )
                             )    
